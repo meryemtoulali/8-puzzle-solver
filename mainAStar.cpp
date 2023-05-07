@@ -22,7 +22,7 @@ int main () {
     racine->niveau = 0;
     racine->fval = f(racine, but);
 
-    printf("\n************ IDA* ************\n\n");
+    printf("\n************* A* *************\n\n");
 
     printf("Configuration initiale :\n");
     afficher_noeud(racine);
@@ -66,31 +66,18 @@ int main () {
                 copier(noeud->config, fils->config);
                 permuter(fils->config, x1, y1, x2, y2);
 
-                // si la config du fils n'a pas encore ete visitee
-                // inserer fils dans la queue 
-                // if(chercherUnObjet(noeuds_visites, fils) == NULL){
-                //     fils->niveau = noeud->niveau + 1;
-                //     fils->parent = noeud;
-                //     fils->fval = f(fils, but);
-                //     afficher_noeud(fils);
-                //     //inserer fils dans queue
-                //     insererEnOrdre(queue, fils);
-                // }
-
                 fils->niveau = noeud->niveau + 1;
                 fils->parent = noeud;
                 fils->fval = f(fils, but);
                 //afficher_noeud(fils);
                 //inserer fils dans queue
-                insererEnOrdre(queue, fils);
-                
+                insererEnOrdre(queue, fils); 
             }
         }
     }
     
     printf("\n%d noeuds explorés.\n", count_explores);
     
-
     reconstruire_chemin(noeuds_visites);
     
     detruireListe(queue);

@@ -4,9 +4,9 @@ extern char config_init[3][3];
 extern char but[3][3];
 
 struct Noeud{
-    //char(* config)[3];        //configuration du taquin a l'etat du noeud
+    //char(* config)[3];        
     //char config[3][3];
-    char **config;
+    char **config;            //configuration du taquin a l'etat du noeud
     int niveau;               //profondeur ou nbr d'etapes pour atteindre le noeud
     int fval;                 //cout f = h + g
     struct Noeud* parent;     //parent du noeud, pour reconstruire le chemin
